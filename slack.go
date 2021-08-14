@@ -25,8 +25,8 @@ func New() {
 	}
 }
 
-func GetEnv(env string) string {
-	env = os.Getenv(env)
+func GetEnv(key string) string {
+	env := os.Getenv(key)
 
 	if env == "" || len(env) < 1 {
 		log.Fatalf("Error : %s variable not found on your system, please add to environtment variable.", env)
