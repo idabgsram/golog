@@ -61,16 +61,11 @@ func (s *SlackWebhook) compose(message string, messageType string, color string,
 		})
 	}
 
-	msg := message
-	if len(message) > 30 {
-		msg = message[0:27] + "..."
-	}
-
 	payload := slack.Payload{
 		Username:    s.Username,
 		Channel:     s.Channel,
 		IconEmoji:   emoji,
-		Text:        msg,
+		Text:        message,
 		Attachments: []slack.Attachment{attachment},
 	}
 	s.sendToSlack(payload)
@@ -98,16 +93,11 @@ func (s *SlackWebhook) composeWithData(message string, messageType string, color
 		})
 	}
 
-	msg := message
-	if len(message) > 30 {
-		msg = message[0:27] + "..."
-	}
-
 	payload := slack.Payload{
 		Username:    s.Username,
 		Channel:     s.Channel,
 		IconEmoji:   emoji,
-		Text:        msg,
+		Text:        message,
 		Attachments: []slack.Attachment{attachment},
 	}
 	s.sendToSlack(payload)
