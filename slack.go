@@ -60,10 +60,12 @@ func (s *SlackWebhook) compose(message string, messageType string, color string,
 			Value: fmt.Sprintf("``` %s ```", errors.Error()),
 		})
 	}
+
 	payload := slack.Payload{
 		Username:    s.Username,
 		Channel:     s.Channel,
 		IconEmoji:   emoji,
+		Text:        message,
 		Attachments: []slack.Attachment{attachment},
 	}
 	s.sendToSlack(payload)
@@ -90,10 +92,12 @@ func (s *SlackWebhook) composeWithData(message string, messageType string, color
 			Value: fmt.Sprintf("``` %s ```", e.Error()),
 		})
 	}
+
 	payload := slack.Payload{
 		Username:    s.Username,
 		Channel:     s.Channel,
 		IconEmoji:   emoji,
+		Text:        message,
 		Attachments: []slack.Attachment{attachment},
 	}
 	s.sendToSlack(payload)
