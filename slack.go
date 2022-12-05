@@ -25,6 +25,14 @@ func New() {
 	}
 }
 
+func NewCustomInstance(channel string, username string, url string) {
+	Slack = SlackWebhook{
+		URL:      url,
+		Username: username,
+		Channel:  channel,
+	}
+}
+
 func GetEnv(key string) string {
 	env := os.Getenv(key)
 
